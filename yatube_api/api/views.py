@@ -6,12 +6,13 @@ from rest_framework.decorators import action
 from rest_framework.response import Response
 from django.contrib.auth import get_user_model
 from rest_framework.pagination import LimitOffsetPagination
-from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnly
+from rest_framework.permissions import IsAuthenticated, \
+    IsAuthenticatedOrReadOnly
 from rest_framework.filters import SearchFilter
 
-from posts.models import Post, Comment, Follow, Group
+from posts.models import Post, Follow, Group
 from .serializers import (
-    PostSerializer, CommentSerializer, FollowSerializer, 
+    PostSerializer, CommentSerializer, FollowSerializer,
     UserSerializer, GroupSerializer
 )
 from .permissions import IsAuthorOrReadOnly
@@ -84,7 +85,8 @@ class FollowViewSet(viewsets.ModelViewSet):
         serializer.save(user=self.request.user)
 
 
-class GroupViewSet(mixins.ListModelMixin, mixins.RetrieveModelMixin, viewsets.GenericViewSet):
+class GroupViewSet(mixins.ListModelMixin, mixins.RetrieveModelMixin,\
+    viewsets.GenericViewSet):
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
     permission_classes = (IsAuthenticatedOrReadOnly,)

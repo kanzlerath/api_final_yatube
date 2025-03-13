@@ -7,10 +7,12 @@ from posts.models import Comment, Post, Follow, Group
 
 User = get_user_model()
 
+
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ('id', 'username', 'first_name', 'last_name')
+
 
 class PostSerializer(serializers.ModelSerializer):
     author = SlugRelatedField(slug_field='username', read_only=True)
@@ -60,6 +62,7 @@ class FollowSerializer(serializers.ModelSerializer):
                 'Нельзя подписаться на самого себя'
             )
         return value
+
 
 class GroupSerializer(serializers.ModelSerializer):
     class Meta:
