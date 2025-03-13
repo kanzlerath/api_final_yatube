@@ -17,7 +17,7 @@ urlpatterns = [
     path('api/v1/jwt/refresh/',
          TokenRefreshView.as_view(),
          name='token_refresh'
-        ),
+         ),
     path('api/v1/jwt/verify/',
          TokenVerifyView.as_view(),
          name='token_verify'
