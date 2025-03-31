@@ -22,7 +22,7 @@ API для социальной сети Yatube. Позволяет пользо
 
 1. Клонировать репозиторий и перейти в него в командной строке:
 ```
-git clone ??
+git clone https://github.com/kanzlerath/api_final_yatube
 cd api_final_yatube
 ```
 
